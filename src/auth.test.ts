@@ -61,6 +61,6 @@ describe("Bearer Token Extraction", () => {
     });
 
     it("Throws an error when the token is undefined", () => {
-        expect(() => getBearerToken(mockReq2 as any)).toThrow("Missing Authorization Header");
+        expect(() => getBearerToken(mockReq2 as any)).toThrow("Missing authorization header");
     });
 });
