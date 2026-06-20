@@ -14,7 +14,13 @@ export async function createUser(user: NewUser): Promise<UserResponse | undefine
 }
 
 export async function getUsers(){
-    return await db.select().from(users);
+    return await db.select({
+        id: users.id,
+        email: users.email,
+        createdAt: users.createdAt,
+        updatedAt: users.updatedAt,
+        isChirpyRed: users.isChirpyRed
+    }).from(users);
 }
 export async function getUserByEmail(email: string){
     const [user] = await db.select().from(users).where(eq(users.email, email));

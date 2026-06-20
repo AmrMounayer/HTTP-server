@@ -1,5 +1,7 @@
 import express, {Request, Response, NextFunction} from "express";
+import swaggerUi from "swagger-ui-express";
 import {config} from "./config.js";
+import {openapiSpec} from "./swagger.js";
 import postgres from "postgres";
 import { migrate } from "drizzle-orm/postgres-js/migrator";
 import { drizzle } from "drizzle-orm/postgres-js";
@@ -263,6 +265,10 @@ app.post("/api/refresh", refreshTokenHandler);
 app.post("/api/revoke", revokeRefreshToken);
 
 app.post("/api/polka/webhooks", subscribeHandler);
+
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(openapiSpec, {
+  customSiteTitle: "Chirpy API docs",
+}));
 
 app.use(middlewareErrorHandler);
 
