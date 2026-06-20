@@ -174,7 +174,3 @@ Runs the Vitest suite in [src/auth.test.ts](src/auth.test.ts), covering password
 | `npm run generate`  | Generate a new Drizzle migration.            |
 | `npm run migrate`   | Apply pending migrations.                    |
 | `npm run studio`    | Open Drizzle Studio.                         |
-
-## License
-
-ISC
